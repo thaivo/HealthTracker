@@ -6,12 +6,20 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
+                <div>
+                    <h1>{{$user->name}}</h1>
+                </div>
+                <div>
+                    <h2>{{$user->profile->title}}</h2>
+                    <p>{{$user->profile->gender}}</p>
+                    <p>{{$user->profile->DateOfBirth}}</p>
 
+                </div>
                 <div class="card-body">
                     @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
+                    <div class="alert alert-success" role="alert">
+                        {{ session('status') }}
+                    </div>
                     @endif
 
                     {{ __('You are logged in!') }}
