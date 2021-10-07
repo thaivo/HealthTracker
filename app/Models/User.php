@@ -46,4 +46,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Profile::class);
     }
+
+    public function BmiRecords()  //in ploral - with 's'
+    {
+        return $this->hasMany(BmiRecord::class);
+    }
 }

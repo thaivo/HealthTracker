@@ -8,12 +8,15 @@
                 <div class="card-header">{{ __('Dashboard') }}</div>
                 <div>
                     <h1>{{$user->name}}</h1>
+                    <a href="#">Add new BMI record</a>
                 </div>
-                <div>
-                    <h2>{{$user->profile->title}}</h2>
-                    <p>{{$user->profile->gender}}</p>
-                    <p>{{$user->profile->DateOfBirth}}</p>
+                <div class="col-9 pt-5">
+                    <div>
+                        <p>Title: {{$user->profile->title}}</p>
+                        <p>Gender: {{$user->profile->gender}}</p>
+                        <p>Date Of Birth: {{$user->profile->DateOfBirth ?? 'N/A'}}</p>
 
+                    </div>
                 </div>
                 <div class="card-body">
                     @if (session('status'))
