@@ -47,8 +47,8 @@ class User extends Authenticatable
         return $this->hasOne(Profile::class);
     }
 
-    public function BmiRecords()  //in ploral - with 's'
+    public function BmiRecords()  //in plural - with 's'
     {
-        return $this->hasMany(BmiRecord::class);
+        return $this->hasMany(BmiRecord::class)->orderBy('created_at', 'DESC');
     }
 }
