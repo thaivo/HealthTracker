@@ -19,12 +19,15 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
     <div id="app">
 
-        <div>
+        <div class="container">
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 <a style="float:right; display:inline-block;" class="dropdown-item" href="{{ route('logout') }}"
                     onclick="event.preventDefault();
@@ -36,8 +39,8 @@
                     @csrf
                 </form>
             </div>
-            <div class="d-flex justify-center align-items-center pt-8 sm:pt-0">
-                <h1 style="display:inline-block">HealthTracker</h1>
+            <div class="d-flex justify-center pt-4 align-items-center pt-8 sm:pt-0">
+                <h1>HealthTracker</h1>
                 <img src="/svg/health-care-svgrepo-com1.svg" style="height: 25px;" />
             </div>
 

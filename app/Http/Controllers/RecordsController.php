@@ -36,10 +36,14 @@ class RecordsController extends Controller
             'weight' => $data ['weight'],
             'height' => $data ['height'],
             'bmi' => $bmi,
-            'InRange' => $bmi <= 25,
+            'InRange' => 18.5 <= $bmi and $bmi <= 24.9,
 
         ]);
         return redirect('/profile/' . auth()->user()->id);
 
+    }
+    public function show(\App\Models\BmiRecord $record)
+    {
+        return view('records.show', compact('record'));  //match post ot anything else to variable of post
     }
 }
