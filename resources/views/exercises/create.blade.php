@@ -8,7 +8,7 @@
 </head>
 <body>
     <div style="width: 900px;" class="container max-w-full mx-auto pt-4">
-    <h1 class="text-4xl font-bold mb-4">New Exercises</h1>
+    <h1 class="text-4xl font-bold mb-4 text-center">New Exercises</h1>
         <form method="POST" action="/exercises">
             @csrf
 

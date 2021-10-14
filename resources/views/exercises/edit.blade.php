@@ -10,7 +10,14 @@
 
 <body>
     <div style="width: 900px;" class="container max-w-full mx-auto pt-4">
-        <h1 class="text-4xl font-bold mb-4">Edit {{ $exercise->title }}</h1>
+        <h1 class="text-center text-4xl font-bold mb-4 uppercase">Edit {{ $exercise->title }}</h1>
+        <form method="POST" action="/exercises/{{ $exercise->id }}">
+            @csrf
+            @method('DELETE')
+
+            <button class="float-right bg-red-500 tracking-wide text-white px-6 py-2 inline-block mb-6 shadow-lg rounded hover:shadow">Delete</button>
+        </form>
+        <br><br>
         <form method="POST" action="/exercises/{{ $exercise->id }}">
             @method('PUT')
             @csrf
@@ -36,13 +43,7 @@
             </div>
 
             <button class="bg-blue-500 tracking-wide text-white px-6 py-2 inline-block mb-6 shadow-lg rounded hover:shadow">Update</button>
-            <a href="/exercises" class="bg-gray-500 tracking-wide text-white px-6 py-2 inline-block mb-6 shadow-lg rounded hover:shadow">Cancel</a>
-        </form>
-        <form method="POST" action="/exercises/{{ $exercise->id }}">
-            @csrf
-            @method('DELETE')
-
-            <button class="float-right ml-4 bg-red-500 tracking-wide text-white px-6 py-2 inline-block mb-6 shadow-lg rounded hover:shadow">Delete</button>
+            <a href="/exercises" class="float-right bg-gray-500 tracking-wide text-white px-6 py-2 inline-block mb-6 shadow-lg rounded hover:shadow">Cancel</a>
         </form>
     </div>
 </body>
