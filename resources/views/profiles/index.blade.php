@@ -60,14 +60,26 @@
     </div>
         <div class="row pt-5 table-responsive">
             <table class="table">
-                @foreach($user->BmiRecords as $record)
+                <thead>
+
                     <div class="col-4 pb-4">
-                        <p>Added on: {{$record->created_at}}</p><a href="/record/{{ $record->id }}">
-                        <p>bmi: {{$record->BMI}}</p>
-                        </a>
-                        <p>In Normal Range: {{$record->InRange}}</p>
+                        <tr>
+                            <th scope="col">Added on</th>
+                            <th scope="col">BMI</th>
+                            <th scope="col">In Normal Range</th>
+                        </tr>
                     </div>
+
+                </thead>
+                <tbody>
+                @foreach($user->BmiRecords as $record)
+                    <tr>
+                        <td>{{$record->created_at}} </td>
+                        <td><a href="/record/{{ $record->id }}">{{$record->BMI}}</a></td>
+                        <td>{{$record->InRange}}</td>
+                    </tr>
                 @endforeach
+                </tbody>
             </table>
         </div>
 
