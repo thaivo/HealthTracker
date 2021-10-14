@@ -20,7 +20,7 @@
         </div>
 
 
-        <a href="/exercises" class="bg-purple-500 tracking-wide text-white px-6 py-2 inline-block mb-6 shadow-lg rounded hover:shadow">Back</a>
+        <a href="/exercises" class="bg-gray-500 tracking-wide text-white px-6 py-2 inline-block mb-6 shadow-lg rounded hover:shadow">Back</a>
     </div>
 </body>
 
