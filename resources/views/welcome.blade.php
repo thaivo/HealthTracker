@@ -514,7 +514,7 @@
     </div>
 </body>
 <footer>
-    Copyrights Yifat, Thai and Soung.
+    Copyrights Yifat, Thai and Suonng.
 </footer>
 
 </html>
