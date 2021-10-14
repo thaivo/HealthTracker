@@ -11,7 +11,7 @@
             <h1>Edit Profile</h1>
         </div>
         <div class="row">
-            <div class="col-8 offset-2">
+            <div class="col-4 offset-4">
                 <div class="form-group row">
                     <label for="title" class="col-md-4 pt-4 col-form-label">{{ __('Title: ') }}</label>
                     <input id="title"
@@ -59,9 +59,11 @@
                 </div>
             </div>
         </div>
-        <div class="row pt-4">
+        <div class="row pt-4 col-4 offset-4">
             <button class="btn btn-primary">Save Profile</button>
         </div>
     </form>
+    <a href="{{ URL::previous() }}" class="btn btn-link">Back</a></div>
+
 </div>
 @endsection

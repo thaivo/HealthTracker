@@ -13,5 +13,7 @@
             <p>Height: {{ $record->height }}</p>
         </div>
     </div>
+    <a href="{{ URL::previous() }}" class="btn btn-link">Back</a></div>
+
 </div>
 @endsection
