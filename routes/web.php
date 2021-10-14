@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\ExerciseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +29,12 @@ Route::post('/record', [App\Http\Controllers\RecordsController::class, 'store'])
 Route::get('/profile/{user}', [App\Http\Controllers\ProfilesController::class, 'index'])->name('profile.show');
 Route::get('/profile/{user}/edit', [App\Http\Controllers\ProfilesController::class, 'edit'])->name('profile.edit');
 Route::patch('/profile/{user}', [App\Http\Controllers\ProfilesController::class, 'update'])->name('profile.update');
+
+//Route::get('/profilePic/{user}',[App\Http\Controllers\ProfilePicController::class,'index']);
+Route::get('/exercises' , [ExerciseController::class, 'index']);
+Route::get('/exercises/{exercise}/details' , [ExerciseController::class, 'details']);
+Route::post('/exercises' , [ExerciseController::class, 'store']);
+Route::get('/exercises/create' , [ExerciseController::class, 'create']);
+Route::get('/exercises/{exercise}/edit', [ExerciseController::class, 'edit']);
+Route::put('/exercises/{exercise}',[ExerciseController::class,'update']);
+Route::delete('/exercises/{exercise}',[ExerciseController::class,'erase']);
