@@ -90,8 +90,8 @@
     Name: {{auth()->user()->name}}
     Email: {{auth()->user()->email}}
 </div>
+<h2>List of users</h2>
 @foreach($users as $user)
-
 <div>
     {{$user->name}}
 </div>
