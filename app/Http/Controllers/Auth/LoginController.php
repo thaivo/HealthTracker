@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -29,7 +30,9 @@ class LoginController extends Controller
     protected $redirectTo = "/profile/";
     protected function redirectTo()
     {
-
+        if (auth()->user()->is_admin === 1){
+            return "/admin/users";
+        }
         return "/profile/" . auth()->user()->id;
 
     }

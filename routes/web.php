@@ -38,3 +38,5 @@ Route::get('/exercises/create' , [ExerciseController::class, 'create']);
 Route::get('/exercises/{exercise}/edit', [ExerciseController::class, 'edit']);
 Route::put('/exercises/{exercise}',[ExerciseController::class,'update']);
 Route::delete('/exercises/{exercise}',[ExerciseController::class,'erase']);
+
+Route::get('admin/users', [\App\Http\Controllers\ProfilesController::class, 'load'])->middleware('admin');

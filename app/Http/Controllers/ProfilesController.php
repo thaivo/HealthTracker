@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use http\Env\Response;
 use Illuminate\Http\Request;
 
 class ProfilesController extends Controller
@@ -31,5 +32,16 @@ class ProfilesController extends Controller
         $user->profile()->update($data);
 
         return redirect("/profile/{$user->id}");
+    }
+
+    public function load(User $users){
+        if (auth()->user()->is_admin !== 1){
+            abort(\Illuminate\Http\Response::HTTP_FORBIDDEN);
+        }
+        //ddd(User::all()->where('is_admin','=',0)->toArray());
+        $data = User::all()->where('is_admin','=',0);
+        //ddd($data);
+        //ddd(auth()->user());
+        return view('profiles.admin_index', ['users'=>$data]);
     }
 }
