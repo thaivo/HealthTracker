@@ -93,7 +93,8 @@
 <h2>List of users</h2>
 @foreach($users as $user)
 <div>
-    {{$user->name}}
+    <a href="/admin/users/detail/{{$user->id}}">{{$user->name}}</a>
+
 </div>
 @endforeach
 </div>

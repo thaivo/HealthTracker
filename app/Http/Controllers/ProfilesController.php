@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Profile;
 use App\Models\User;
 use http\Env\Response;
 use Illuminate\Http\Request;
@@ -34,7 +35,7 @@ class ProfilesController extends Controller
         return redirect("/profile/{$user->id}");
     }
 
-    public function load(User $users){
+    public function loadUsers(User $users){
         if (auth()->user()->is_admin !== 1){
             abort(\Illuminate\Http\Response::HTTP_FORBIDDEN);
         }
@@ -43,5 +44,25 @@ class ProfilesController extends Controller
         //ddd($data);
         //ddd(auth()->user());
         return view('profiles.admin_index', ['users'=>$data]);
+    }
+
+    public function accessAParticularUserDetail(User $user){
+        //ddd($user);
+        return view('profiles.admin_access_a_particular_user_detail', ['profile'=>Profile::find($user->id)]);
+    }
+
+    public function editAParticularUser(User $user){
+        //ddd($user);
+        return view('profiles.admin_edit_a_particular_user',['user'=>Profile::find($user->id)]);
+    }
+
+    public function updateAParticularUser(User $user){
+        $data = request()->validate([
+            'title'=>'required',
+            'gender' => '',
+            'DateOfBirth' => ''
+        ]);
+        $user->profile()->update($data);
+        return view('profiles.admin_access_a_particular_user_detail',['profile'=>Profile::find($user->id)]);
     }
 }

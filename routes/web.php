@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ExerciseController;
-
+use App\Http\Controllers\ProfilesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routeser
@@ -39,4 +39,7 @@ Route::get('/exercises/{exercise}/edit', [ExerciseController::class, 'edit']);
 Route::put('/exercises/{exercise}',[ExerciseController::class,'update']);
 Route::delete('/exercises/{exercise}',[ExerciseController::class,'erase']);
 
-Route::get('admin/users', [\App\Http\Controllers\ProfilesController::class, 'load'])->middleware('admin');
+Route::get('admin/users', [ProfilesController::class, 'loadUsers'])->middleware('admin');
+Route::get('/admin/users/detail/{user}', [ProfilesController::class, 'accessAParticularUserDetail'])->middleware('admin');
+Route::get('/admin/users/edit/{user}',[ProfilesController::class, 'editAParticularUser'])->middleware('admin');
+Route::post('/admin/users/update/{user}', [ProfilesController::class, 'updateAParticularUser'])->middleware('admin');
