@@ -90,6 +90,11 @@
     Name: {{auth()->user()->name}}
     Email: {{auth()->user()->email}}
 </div>
+@if(Route::has('login'))
+    @auth()
+        <a href="/admin/users/create">Add new user</a>
+    @endauth
+@endif
 <h2>List of users</h2>
 @foreach($users as $user)
 <div>
@@ -97,5 +102,6 @@
 
 </div>
 @endforeach
+
 </div>
 @endsection

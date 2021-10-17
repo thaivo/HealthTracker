@@ -71,4 +71,9 @@ class ProfilesController extends Controller
         $user->delete();
         return redirect('/admin/users');
     }
+
+    public function createNewUser(){
+        //ddd(auth()->user()->email);
+        return view('profiles.admin_create_new_user');
+    }
 }
