@@ -67,6 +67,7 @@ class ProfilesController extends Controller
     }
 
     public function deleteAParticularUser(User $user){
+        Profile::destroy([$user->id]);
         $user->delete();
         return redirect('/admin/users');
     }
