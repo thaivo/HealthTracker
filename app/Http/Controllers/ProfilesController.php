@@ -65,4 +65,9 @@ class ProfilesController extends Controller
         $user->profile()->update($data);
         return view('profiles.admin_access_a_particular_user_detail',['profile'=>Profile::find($user->id)]);
     }
+
+    public function deleteAParticularUser(User $user){
+        $user->delete();
+        return redirect('/admin/users');
+    }
 }

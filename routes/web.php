@@ -43,3 +43,4 @@ Route::get('admin/users', [ProfilesController::class, 'loadUsers'])->middleware(
 Route::get('/admin/users/detail/{user}', [ProfilesController::class, 'accessAParticularUserDetail'])->middleware('admin');
 Route::get('/admin/users/edit/{user}',[ProfilesController::class, 'editAParticularUser'])->middleware('admin');
 Route::post('/admin/users/update/{user}', [ProfilesController::class, 'updateAParticularUser'])->middleware('admin');
+Route::post('/admin/users/delete/{user}',[ProfilesController::class,'deleteAParticularUser'])->middleware('admin');
