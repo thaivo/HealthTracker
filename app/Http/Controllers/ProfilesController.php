@@ -6,6 +6,8 @@ use App\Models\Profile;
 use App\Models\User;
 use http\Env\Response;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class ProfilesController extends Controller
 {
@@ -75,5 +77,27 @@ class ProfilesController extends Controller
     public function createNewUser(){
         //ddd(auth()->user()->email);
         return view('profiles.admin_create_new_user');
+    }
+
+    public function storeNewUser(){
+        request()->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'title' => 'required',
+        ]);
+        User::create([
+            'name' => \request('name'),
+            'email' => \request('email'),
+            'password' => Hash::make(\request('password')),
+        ]);
+
+        $userId = DB::table('users')->select('id')->where('name', '=', \request('name'))->where('email','=',\request('email'))->get();
+        Profile::created([
+            'user_id' => $userId,
+            'title' => \request('title'),
+            'gender' => \request('DateOfBirth')
+        ]);
+        return redirect('/admin/users');
     }
 }

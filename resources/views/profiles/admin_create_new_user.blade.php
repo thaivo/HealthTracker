@@ -1,7 +1,7 @@
 @extends('layouts.app')
-@section()
+@section('content')
     <h1>New User</h1>
-    <form method="post" action="/admin/users/store">
+    <form method="POST" action="/admin/users/store">
         @csrf
         <div>
             <label for="name">Name: </label>
@@ -14,10 +14,6 @@
         <div>
             <label for="password">Password: </label>
             <input id="password" name="password" type="password">
-        </div>
-        <div>
-            <label for="retype_password">Retype password: </label>
-            <input id="retype_password" name="retype_password" type="password">
         </div>
         <div>
             <label for="title">Title: </label>

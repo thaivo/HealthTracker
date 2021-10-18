@@ -45,3 +45,4 @@ Route::get('/admin/users/edit/{user}',[ProfilesController::class, 'editAParticul
 Route::post('/admin/users/update/{user}', [ProfilesController::class, 'updateAParticularUser'])->middleware('admin');
 Route::post('/admin/users/delete/{user}',[ProfilesController::class,'deleteAParticularUser'])->middleware('admin');
 Route::get('/admin/users/create',[ProfilesController::class,'createNewUser'])->middleware('admin');
+Route::post('/admin/users/store',[ProfilesController::class,'storeNewUser'])->middleware('admin');
