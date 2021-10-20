@@ -38,6 +38,7 @@
                     @csrf
                 </form>
             </div>
+            <a href="/" class="nav-link">Back</a>
             <div class="d-flex justify-center pt-4 align-items-center  sm:pt-0">
                 <h1>HealthTracker</h1>
                 <img src="/svg/health-care-svgrepo-com1.svg" style="height: 25px; margin-left: 5px;" />

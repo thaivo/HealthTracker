@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Exercise;
+use App\Models\User;
 
 class ExerciseController extends Controller
 {
     public function index(){
 
         $exercises = Exercise::all();
+
         //dd(Exercise::all());
         return view('exercises.index',['exercises' => $exercises]);
     }
@@ -23,6 +25,12 @@ class ExerciseController extends Controller
     public function details(Exercise $exercise){
 
         return view('exercises.details',['exercise' => $exercise]);
+    }
+
+    public function calculate(){
+
+        $exercises = Exercise::all();
+        return view('exercises.calculate',['exercises' => $exercises]);
     }
 
     public function store(){

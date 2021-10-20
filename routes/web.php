@@ -38,6 +38,8 @@ Route::get('/exercises/create' , [ExerciseController::class, 'create']);
 Route::get('/exercises/{exercise}/edit', [ExerciseController::class, 'edit']);
 Route::put('/exercises/{exercise}',[ExerciseController::class,'update']);
 Route::delete('/exercises/{exercise}',[ExerciseController::class,'erase']);
+Route::get('exercises/calculate',[ExerciseController::class, 'calculate']);
+Route::put('exercises/calculate',[ExerciseController::class, 'calculated']);
 
 Route::get('admin/users', [ProfilesController::class, 'loadUsers'])->middleware('admin');
 Route::get('/admin/users/detail/{user}', [ProfilesController::class, 'accessAParticularUserDetail'])->middleware('admin');
