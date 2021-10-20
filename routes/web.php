@@ -34,10 +34,10 @@ Route::patch('/profile/{user}', [App\Http\Controllers\ProfilesController::class,
 Route::get('/exercises' , [ExerciseController::class, 'index']);
 Route::get('/exercises/{exercise}/details' , [ExerciseController::class, 'details']);
 Route::post('/exercises' , [ExerciseController::class, 'store']);
-Route::get('/exercises/create' , [ExerciseController::class, 'create']);
-Route::get('/exercises/{exercise}/edit', [ExerciseController::class, 'edit']);
+Route::get('/exercises/create' , [ExerciseController::class, 'create'])->middleware('admin');
+Route::get('/exercises/{exercise}/edit', [ExerciseController::class, 'edit'])->middleware('admin');
 Route::put('/exercises/{exercise}',[ExerciseController::class,'update']);
-Route::delete('/exercises/{exercise}',[ExerciseController::class,'erase']);
+Route::delete('/exercises/{exercise}',[ExerciseController::class,'erase'])->middleware('admin');
 Route::get('exercises/calculate',[ExerciseController::class, 'calculate']);
 Route::put('exercises/calculate',[ExerciseController::class, 'calculated']);
 
