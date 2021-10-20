@@ -14,21 +14,21 @@
                         @endif
 
                         {{ __('You are logged in!') }}
-                    </div>
 
 
-                @can('update', $user->profile)
-                    <a href="/profile/{{ $user->id }}/edit">Edit Profile</a>
-                @endcan
-
-                <div class="col-9 pt-5">
                     <div>
-                        <div class="pt-4 font-weight-bold">Title:{{$user->profile->title}}</div>
-                        <p>Gender: {{$user->profile->gender}}</p>
-                        <p>Date Of Birth: {{$user->profile->DateOfBirth ?? 'N/A'}}</p>
+                    @can('update', $user->profile)
+                        <a href="/profile/{{ $user->id }}/edit">Edit Profile</a>
+                    @endcan
+                    </div>
+                    <div class="col-9 pt-5">
+                        <div>
+                            <div class="pt-4 font-weight-bold">Title:{{$user->profile->title}}</div>
+                            <p>Gender: {{$user->profile->gender}}</p>
+                            <p>Date Of Birth: {{$user->profile->DateOfBirth ?? 'N/A'}}</p>
+                        </div>
                     </div>
                 </div>
-
             </div>
         </div>
         <div class="col-md-4">
