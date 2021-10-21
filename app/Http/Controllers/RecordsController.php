@@ -65,8 +65,9 @@ class RecordsController extends Controller
         $record->id->update($data);
         return redirect('/profile/' . auth()->user()->id);
     }
-    public function erase(BmiRecord $record){
-        $record->delete();
+    public function erase(int $id){
+
+        BmiRecord::where('id', $id)->delete();
 
         return redirect('/profile/' . auth()->user()->id);    }
 }
