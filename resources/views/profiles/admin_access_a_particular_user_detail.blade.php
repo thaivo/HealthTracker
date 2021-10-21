@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="container">
+
+    </div>
     <h2>User information</h2>
     <p>
         Title: {{$profile->title}}

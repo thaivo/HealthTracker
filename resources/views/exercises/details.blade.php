@@ -10,6 +10,16 @@
 
 <body>
     <div style="width: 900px;" class="container max-w-full mx-auto pt-4">
+        <div>
+            <a style="float:right; display:inline-block;" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                {{ __('Logout') }}
+            </a>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form>
+        </div>
         <h1 class="text-center text-4xl font-bold mb-4">Details for <span class="pb-3 text-md text-blue-600 uppercase">{{ $exercise->title }}</span></h1>
         <div class="mb-4">
             <p class="pb-3 text-md text-gray-600">

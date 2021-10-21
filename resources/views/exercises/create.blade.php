@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 </head>
+
 <body>
     <div style="width: 900px;" class="container max-w-full mx-auto pt-4">
-    <h1 class="text-4xl font-bold mb-4 text-center">New Exercises</h1>
+        <div>
+            <a style="float:right; display:inline-block;" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                {{ __('Logout') }}
+            </a>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form>
+        </div>
+        <h1 class="text-4xl font-bold mb-4 text-center">New Exercises</h1>
         <form method="POST" action="/exercises">
             @csrf
 
@@ -37,4 +49,5 @@
         </form>
     </div>
 </body>
+
 </html>
