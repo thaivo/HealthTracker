@@ -77,12 +77,20 @@
                         <td>{{$record->created_at}} </td>
                         <td><a href="/record/{{ $record->id }}">{{$record->BMI}}</a></td>
                         <td>{{$record->InRange}}</td>
+
                     </tr>
+
                 @endforeach
+
+
+
                 </tbody>
+
             </table>
+
         </div>
 
+    <!--{{ $records->links() }}-->
 </div>
 
 @endsection

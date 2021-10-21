@@ -12,23 +12,23 @@ class RecordsController extends Controller
     {
         $this->middleware('auth');
     }
-
-    public function create()   //function called "create"
+    public function index()
     {
-        return view('records.create');   //return "create" file from records -> view
+        return view('user.index');
     }
 
-    public function store()   //function called "create"
+    public function create()
+    {
+        return view('records.create');
+    }
+
+    public function store()
     {
         $data = request()->validate([
             'weight' => 'required|min:0|max:99.99',
             'height' => 'required|min:0|max:99.99',
         ]);
 
-//        $columns = Schema::getColumnListing('bmi_records'); // users table
-//        dd($columns);
-//
-//        error_log(BmiRecord::all());
 
         $bmi = $data ['weight'] / ($data ['height'] * $data ['height']);
 
@@ -46,4 +46,27 @@ class RecordsController extends Controller
     {
         return view('records.show', compact('record'));  //match post ot anything else to variable of post
     }
+    public function edit(BmiRecord $record)
+    {
+       ///$this->authorize('update', $record->id);
+        return view('records.edit', compact('record'));
+
+    }
+    public function update(BmiRecord $record)
+    {
+       $this->authorize('update', $record->id);
+
+       $data = request()->validate([
+          'weight' => 'required',
+           'height' => 'required'
+
+        ]);
+
+        $record->id->update($data);
+        return redirect('/profile/' . auth()->user()->id);
+    }
+    public function erase(BmiRecord $record){
+        $record->delete();
+
+        return redirect('/profile/' . auth()->user()->id);    }
 }

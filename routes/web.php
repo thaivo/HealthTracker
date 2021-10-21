@@ -24,6 +24,11 @@ Auth::routes();
 Route::get('/record/create', [App\Http\Controllers\RecordsController::class, 'create']);
 Route::get('/record/{record}', [App\Http\Controllers\RecordsController::class, 'show']);
 Route::post('/record', [App\Http\Controllers\RecordsController::class, 'store']);
+Route::get('/record/{id}/edit', [App\Http\Controllers\RecordsController::class, 'edit'])->name('record.edit');
+Route::patch('/record/{id}', [App\Http\Controllers\RecordsController::class, 'update'])->name('record.update');
+Route::post('/record/{id}/delete', [App\Http\Controllers\RecordsController::class, 'erase'])->name('record.delete');
+///Route::delete('/record/{id}',[ExerciseController::class,'erase']);
+
 
 
 Route::get('/profile/{user}', [App\Http\Controllers\ProfilesController::class, 'index'])->name('profile.show');

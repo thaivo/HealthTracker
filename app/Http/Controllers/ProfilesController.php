@@ -13,7 +13,10 @@ class ProfilesController extends Controller
 {
     public function index(User $user)
     {
-        return view('profiles.index', compact('user'));
+        return view('profiles.index', [
+            'user' => $user,
+            'records' => DB::table('bmi_records')->where('user_id', '=', $user->id)->paginate(2)
+        ]);
 
     }
     public function edit(User $user)
