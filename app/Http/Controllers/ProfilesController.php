@@ -50,7 +50,8 @@ class ProfilesController extends Controller
 
     public function accessAParticularUserDetail(User $user){
         //ddd($user);
-        return view('profiles.admin_access_a_particular_user_detail', ['profile'=>Profile::find($user->id)]);
+        //ddd();
+        return view('profiles.admin_access_a_particular_user_detail', ['profile'=>Profile::all()->where('user_id','=',$user->id)->first()]);
     }
 
     public function editAParticularUser(User $user){
@@ -64,7 +65,8 @@ class ProfilesController extends Controller
             'gender' => '',
             'DateOfBirth' => ''
         ]);
-        $user->profile()->update($data);
+        $userId = DB::table('profiles')->select('user_id')->where('id', '=', \request('id'))->first();
+        DB::update('update profiles set title=?, gender=?, DateOfBirth=? where user_id =?',[$data['title'],$data['gender'],$data['DateOfBirth'],$userId->user_id]);
         return view('profiles.admin_access_a_particular_user_detail',['profile'=>Profile::find($user->id)]);
     }
 
