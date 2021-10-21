@@ -412,7 +412,15 @@
         <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
             <div class="flex justify-center pt-8 sm:pt-0">
                 <div>
-                    <h1>HealthTracker</h1>
+                    <h1>
+
+                    @if (Route::has('login') && optional(auth()->user())->id != null)
+                    
+                    <a href="{{ url('/profile/'.auth()->user()->id) }}" >HealthTracker</a>
+                    @else
+                    HealthTracker
+                    @endif
+                    </h1>
                 </div>
                 <div>
                     <img src="/svg/health-care-svgrepo-com1.svg" style="height: 25px;" />

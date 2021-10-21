@@ -56,12 +56,14 @@
     <script>
         function calcSum(names,calories) {
             let sum = 0;
+            let sumHour = 0;
             for(i = 0; i < names.length; i++){
-                console.log("value" + names[i])
-                console.log(document.getElementById("value" + names[i]).value);
+                //console.log("value" + names[i])
+                //console.log(document.getElementById("value" + names[i]).value);
                 sum += document.getElementById("value" + names[i]).value * calories[i];
+                sumHour += parseInt(document.getElementById("value" + names[i]).value);
             }
-            document.getElementById('total').innerHTML = sum;
+            document.getElementById('total').innerHTML = sum + " calories burned over " + sumHour + " minutes" ;
         }
     </script>
 </body>
