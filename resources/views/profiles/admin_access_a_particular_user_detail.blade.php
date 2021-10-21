@@ -16,8 +16,9 @@
     </p>
     <a href="/admin/users">Back</a>
     <a href="/admin/users/edit/{{$profile->id}}">Edit</a>
-    <form method="post" action="/admin/users/delete/{{$profile->id}}">
+    <form method="POST" action="/admin/users/delete/{{$profile->id}}">
         @csrf
+        @method('DELETE')
         <button>Delete</button>
     </form>
 @endsection

@@ -44,21 +44,15 @@ class ProfilesController extends Controller
         if (auth()->user()->is_admin !== 1){
             abort(\Illuminate\Http\Response::HTTP_FORBIDDEN);
         }
-        //ddd(User::all()->where('is_admin','=',0)->toArray());
         $data = User::all()->where('is_admin','=',0);
-        //ddd($data);
-        //ddd(auth()->user());
         return view('profiles.admin_index', ['users'=>$data]);
     }
 
     public function accessAParticularUserDetail(User $user){
-        //ddd($user);
-        //ddd();
         return view('profiles.admin_access_a_particular_user_detail', ['profile'=>Profile::all()->where('user_id','=',$user->id)->first()]);
     }
 
     public function editAParticularUser(User $user){
-        //ddd($user);
         return view('profiles.admin_edit_a_particular_user',['user'=>Profile::find($user->id)]);
     }
 
@@ -73,14 +67,13 @@ class ProfilesController extends Controller
         return view('profiles.admin_access_a_particular_user_detail',['profile'=>Profile::find($user->id)]);
     }
 
-    public function deleteAParticularUser(User $user){
-        Profile::destroy([$user->id]);
-        $user->delete();
+    public function deleteAParticularUser(Profile $profile){
+        Profile::destroy([$profile->id]);
+        User::destroy([$profile->user_id]);
         return redirect('/admin/users');
     }
 
     public function createNewUser(){
-        //ddd(auth()->user()->email);
         return view('profiles.admin_create_new_user');
     }
 
